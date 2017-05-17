@@ -1,7 +1,7 @@
 %define  debug_package %{nil}
 
 Name:           start-stop-daemon
-Version:        1.18.2
+Version:        1.18.23
 Release:        1%{?dist}
 Summary:        Start and stop system daemon programs
 Group:          System Environment/Daemons
@@ -33,7 +33,7 @@ make -C utils
 rm -rf $RPM_BUILD_ROOT
 
 %{__mkdir} -p "%{buildroot}/%{_prefix}/share/man/man8"
-%{__cp} -aR "man/start-stop-daemon.8" "%{buildroot}/%{_prefix}/share/man/man8/"
+%{__cp} -aR "man/start-stop-daemon.man" "%{buildroot}/%{_prefix}/share/man/man8/"
 
 %{__mkdir} -p "%{buildroot}/%{_sbindir}"
 %{__cp} -aR "utils/start-stop-daemon" "%{buildroot}/%{_sbindir}/start-stop-daemon"
@@ -43,10 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%{_prefix}/share/man/man8/start-stop-daemon.8.gz
+%{_prefix}/share/man/man8/start-stop-daemon.man.gz
 %defattr(755,root,root)
 %{_sbindir}/start-stop-daemon
 
-%changelog
-* Tue Aug 19 2015 William Garcia <garcia.rodriguez.william@gmail.com>
-- Initial version
